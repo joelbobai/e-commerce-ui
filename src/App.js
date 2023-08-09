@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useState } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
+import { useAuthStore } from "./store/store";
+import Verification from "./components/verification/Verification";
+import DashboardLayout from "./layouts/dashboard";
+import HomePage from "./pages/HomePage";
+import Form from "./components/form/Form";
+import Page404 from "./pages/Page404";
+import "./App.css";
 
+/** root routes */
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <DashboardLayout />,
+    children: [
+      { element: <Navigate to="/app" replace />, index: true },
+      { path: "app", element: <HomePage /> },
+      // { path: "ai", element: <AIGeneralApp /> },
+
+      { path: "404", element: <Page404 /> },
+      { path: "*", element: <Navigate to="/404" replace /> },
+    ],
+  },
+  { path: "*", element: <Navigate to="/404" replace /> },
+  {
+    path: "/form",
+    element: <Form></Form>,
+  },
+  {
+    path: "/verification",
+    element: <Verification></Verification>,
+  },
+]);
 function App() {
+  // see the data
+  //useAuthStore((state) => console.log(state));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="mainBoby">
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }

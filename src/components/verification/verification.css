@@ -1,0 +1,64 @@
+h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #353535;
+  font-family: cursive;
+  padding-top: 64px;
+}
+.please {
+  top: 14em;
+  font-family: cursive;
+  padding-top: 20px;
+}
+.containerV {
+  height: 600px;
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 0 20px;
+}
+
+.verify {
+  height: 600px;
+  transition: height 0.2s ease;
+  padding: 20px;
+}
+
+.pass {
+  color: rgb(22, 102, 221);
+  text-decoration-line: underline;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  font-family: fantasy;
+}
+.buttonV {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 35px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.button2V {
+  background-color: #353535;
+  font-family: cursive;
+  color: whitesmoke;
+  border: 2px solid #008cba;
+}
+.button2V:hover {
+  background-color: #4070f4;
+}
+#number {
+  font-family: cursive;
+}
