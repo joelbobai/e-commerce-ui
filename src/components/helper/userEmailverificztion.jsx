@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import { url } from "./userRequest";
 // request new verification otp
 export async function newOTP(email) {
   toast.info("Please wait...", {
@@ -14,7 +14,7 @@ export async function newOTP(email) {
     theme: "light",
   });
   const res = await axios
-    .post("http://localhost:3001/api/v1/email_verification", {
+    .post(`${url()}/api/v1/email_verification`, {
       email: email,
     })
     .catch((err) => {

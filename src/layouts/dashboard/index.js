@@ -3,7 +3,7 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useAuthStore } from "./../../store/store";
 import Announcement from "../../components/home/Announcement";
 import Navbar from "../../components/home/Navbar";
-
+import { url } from "../../components/helper/userRequest";
 import "./index.css";
 import axios from "axios";
 axios.defaults.withCredentials = true;
@@ -18,7 +18,7 @@ const DashboardLayout = () => {
   useEffect(() => {
     const sendRequest = async () => {
       const res = await axios
-        .get("http://localhost:3001/api/v1/user/private_data", {
+        .get(`${url()}/api/v1/user/private_data`, {
           withCredentials: true,
         })
         .catch((err) => {

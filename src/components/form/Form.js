@@ -4,6 +4,7 @@ import SignUp from "./SignUp";
 import log from "./img/log.svg";
 import reg from "./img/register.svg";
 import { useAuthStore } from "./../../store/store";
+import { url } from "../helper/userRequest";
 import "./style.css";
 import axios from "axios";
 axios.defaults.withCredentials = true;
@@ -32,7 +33,7 @@ function Form() {
   useEffect(() => {
     const sendRequest = async () => {
       const res = await axios
-        .get("http://localhost:3001/api/v1/user/private_data", {
+        .get(`${url()}/api/v1/user/private_data`, {
           withCredentials: true,
         })
         .catch((err) => {
