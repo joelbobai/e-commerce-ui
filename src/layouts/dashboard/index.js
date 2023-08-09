@@ -8,6 +8,10 @@ import "./index.css";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 const DashboardLayout = () => {
+  let authToken = useAuthStore((state) => {
+    return state.auth.authToken;
+  });
+  axios.defaults.headers.post["Authorization"] = `Bearer ${authToken}`;
   const setUser = useAuthStore((state) => state.setUser);
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
   let isLoggedIn = useAuthStore((state) => {
@@ -18,9 +22,15 @@ const DashboardLayout = () => {
   useEffect(() => {
     const sendRequest = async () => {
       const res = await axios
-        .get(`${url()}/api/v1/user/private_data`, {
-          withCredentials: true,
-        })
+        .get(
+          `${url()}/api/v1/user/private_data`
+          // , {
+          //   headers: {
+          //     Authorization: `Bearer ${authToken}`,
+          //   },
+          //  withCredentials: true,
+          //}
+        )
         .catch((err) => {
           setIsLoggedIn(false);
           console.log(err, err.response.data);
