@@ -10,6 +10,10 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 function Form() {
+  let authToken = useAuthStore((state) => {
+    return state.auth.authToken;
+  });
+  axios.defaults.headers.post["Authorization"] = `Bearer ${authToken}`;
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   // User Login
   // const [login, setLogin] = useState(false);
@@ -33,9 +37,15 @@ function Form() {
   useEffect(() => {
     const sendRequest = async () => {
       const res = await axios
-        .get(`${url()}/api/v1/user/private_data`, {
-          withCredentials: true,
-        })
+        .get(
+          `${url()}/api/v1/user/private_data`
+          // , {
+          //   headers: {
+          //     Authorization: `Bearer ${authToken}`,
+          //   },
+          //  withCredentials: true,
+          // }
+        )
         .catch((err) => {
           setIsLoggedIn(false);
           // console.log(err, err.response.data);
