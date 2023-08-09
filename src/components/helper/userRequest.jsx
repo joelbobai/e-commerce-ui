@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 // }
 // let State = true;
 export function url() {
-  return "http://localhost:3001";
+  return "https://e-commerce-backend-46rw.onrender.com";
 }
 export async function reqister(inputs) {
   // toast.loading("Please wait...");
