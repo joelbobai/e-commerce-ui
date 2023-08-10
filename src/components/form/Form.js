@@ -10,7 +10,7 @@ import axios from "axios";
 
 
 function Form() {
-  axios.defaults.withCredentials = true;
+ // axios.defaults.withCredentials = true;
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
