@@ -33,7 +33,8 @@ function SignIn() {
     //console.log(Status);
     console.log(Status);
     if (Status === "200") {
-      console.log(ans.data.user.token);
+      
+      console.log(ans.data.user._id+"="+ans.data.user.token);
       setAuthToken(ans.data.user.token);
       history("/");
     }
