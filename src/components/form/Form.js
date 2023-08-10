@@ -7,9 +7,10 @@ import { useAuthStore } from "./../../store/store";
 import { url } from "../helper/userRequest";
 import "./style.css";
 import axios from "axios";
-axios.defaults.withCredentials = true;
+
 
 function Form() {
+  axios.defaults.withCredentials = true;
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
