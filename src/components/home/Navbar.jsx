@@ -75,6 +75,7 @@ const Navbar = () => {
     return state.auth.authToken;
   });
   axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
+  const setAuthToken = useAuthStore((state) => state.setAuthToken);
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
   const sendLogoutReq = async () => {
     const res = await axios.post(
@@ -91,7 +92,7 @@ const Navbar = () => {
     return new Error("Unable TO Logout. Please try again");
   };
   const handleLogout = async () => {
-    await sendLogoutReq().then(() => setIsLoggedIn(false));
+    await sendLogoutReq().then(() => { setIsLoggedIn(false);setAuthToken("");});
   };
   return (
     <Container>
