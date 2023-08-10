@@ -11,6 +11,7 @@ const DashboardLayout = () => {
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
+   console.log(authToken);
   axios.defaults.headers.post["Authorization"] = `Bearer ${authToken}`;
   const setUser = useAuthStore((state) => state.setUser);
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
