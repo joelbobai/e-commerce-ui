@@ -6,8 +6,8 @@ import Navbar from "../../components/home/Navbar";
 import { url } from "../../components/helper/userRequest";
 import "./index.css";
 import axios from "axios";
-axios.defaults.withCredentials = true;
 const DashboardLayout = () => {
+  axios.defaults.withCredentials = true;
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
