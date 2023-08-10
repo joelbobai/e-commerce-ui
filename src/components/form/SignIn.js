@@ -35,7 +35,7 @@ function SignIn() {
     if (Status === "200") {
       
       console.log(ans.data.user._id+"="+ans.data.user.token);
-      setAuthToken(ans.data.user.token);
+      setAuthToken(ans.data.user._id+"="+ans.data.user.token);
       history("/");
     }
   };
