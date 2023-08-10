@@ -1,6 +1,7 @@
 // import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+axios.defaults.withCredentials = true;
 // const isLoading = useAuthStore((state) => state.isLoading);
 // const setIsLoading = useAuthStore((state) => state.setIsLoading);
 // setIsLoading(true);
@@ -46,7 +47,7 @@ export async function reqister(inputs) {
   }
 }
 export async function login(inputs) {
- // axios.defaults.withCredentials = true;
+ 
   const res = await axios.post(`${url()}/api/v1/user`, inputs).catch((err) => {
     toast.error(err.response.data, {
       position: "top-center",
