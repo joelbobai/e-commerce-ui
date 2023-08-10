@@ -10,12 +10,12 @@ import axios from "axios";
 
 
 function Form() {
- // axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = true;
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
   console.log(authToken);
-  axios.defaults.headers.post["Authorization"] = `Bearer ${authToken}`;
+  axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   // User Login
   // const [login, setLogin] = useState(false);
