@@ -13,6 +13,7 @@ function Form() {
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
+  console.log(authToken);
   axios.defaults.headers.post["Authorization"] = `Bearer ${authToken}`;
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   // User Login
