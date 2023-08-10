@@ -7,7 +7,7 @@ import { url } from "../../components/helper/userRequest";
 import "./index.css";
 import axios from "axios";
 const DashboardLayout = () => {
- // axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = true;
   let authToken = useAuthStore((state) => {
     return state.auth.authToken;
   });
