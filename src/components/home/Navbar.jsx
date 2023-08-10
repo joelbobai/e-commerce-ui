@@ -5,7 +5,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useAuthStore } from "../../store/store";
 import { mobile } from "../../responsive";
-axios.defaults.withCredentials = true;
+import {url} from "../../components/helper/userRequest";
 const Container = styled.div`
   height: 60px;
   ${mobile({ height: "50px" })}
@@ -70,10 +70,15 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  axios.defaults.withCredentials = true;
+  let authToken = useAuthStore((state) => {
+    return state.auth.authToken;
+  });
+  axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
   const sendLogoutReq = async () => {
     const res = await axios.post(
-      "http://localhost:3001/api/v1/user/logout",
+      `${url()}/api/v1/user/logout`,
       null,
       {
         withCredentials: true,
