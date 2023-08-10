@@ -46,7 +46,7 @@ export async function reqister(inputs) {
   }
 }
 export async function login(inputs) {
-  axios.defaults.withCredentials = true;
+ // axios.defaults.withCredentials = true;
   const res = await axios.post(`${url()}/api/v1/user`, inputs).catch((err) => {
     toast.error(err.response.data, {
       position: "top-center",
